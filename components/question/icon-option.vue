@@ -1,19 +1,27 @@
 <template>
 <div class="option">
-    <img :src="img" :alt="img">
+    <p>{{ icon }}</p>
     <p>{{ text }}</p>
 </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    img: string
+    icon: string
     text: string
 }>()
 </script>
 
 <style scoped>
 .option {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    font: var(--text);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
 }
 </style>

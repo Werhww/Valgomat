@@ -1,6 +1,10 @@
 <template>
 <div>
-    
+    <QuestionIconOption icon="😍" text=""/>
+    <QuestionIconOption icon="😊" text=""/>
+    <QuestionIconOption icon="" text=""/>
+    <QuestionIconOption icon="😍" text=""/>
+    <QuestionIconOption icon="😍" text=""/>
 </div>
 </template>
 
