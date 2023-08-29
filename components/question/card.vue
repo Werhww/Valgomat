@@ -1,23 +1,30 @@
 <template>
 <Transition
-    @after-leave="$emit('after-leave')"
     name="slide"
 >
     <div class="card" v-if="show">
         <p>{{ questionNumber }}</p>
-        <p @click="$emit('answer')">{{ question }}</p>
+        <p>{{ question }}</p>
+
+        <OptionLineUp v-on:answer="answer"/>
     </div>
 </Transition>
 </template>
 
 <script setup lang="ts">
+import OptionLineUp from './option-line-up.vue';
+
 defineProps<{
     questionNumber: number,
     question: string
     show: boolean
 }>()
 
-defineEmits(['answer', 'after-leave'])
+const emit = defineEmits(['answer', 'after-leave'])
+
+function answer(test:any) {
+    emit('answer', test)
+}
 </script>
 
 <style scoped>
@@ -29,7 +36,6 @@ defineEmits(['answer', 'after-leave'])
 
     padding: 3rem 5rem;
     border-radius: calc(var(--border-radius) * 2);
-    /* border: var(--white) 0.1rem solid; */
     filter: drop-shadow(0px 0px 0.2rem rgba(0, 0, 0, 0.25));
 
     position: absolute;
@@ -66,12 +72,12 @@ defineEmits(['answer', 'after-leave'])
 
 .slide-enter-active,
 .slide-leave-active {
-    animation: slideIn 0.5s ease-in-out forwards;
+    animation: slideIn 1.5s ease-in-out;
 }
 
 .slide-enter-from,
 .slide-leave-to {
-    animation: slideOut 0.5s ease-in-out;
+    animation: slideOut .5s ease-in-out;
 }
 
 @keyframes slideIn {
@@ -88,12 +94,15 @@ defineEmits(['answer', 'after-leave'])
 
 @keyframes slideOut {
     0% {
+        z-index: -10;
         left: 50%;
     }
     35% {
+        z-index: -10;
         left: 60%; 
     }
     100% {
+        z-index: -10;
         left: 0%; 
     }
 }

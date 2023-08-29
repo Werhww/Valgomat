@@ -1,6 +1,8 @@
 <template>
     <MainGreating v-on:start="startQuestioning" v-if="!started"/>
-    <QuestionCard :show="showQuestion" :question="question" :question-number="questionNumber" v-on:answer="answer" v-on:after-leave="showQuestion = true"/>
+    <QuestionCard :show="showQuestion && started" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
+    <QuestionCard :show="!showQuestion && started" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
+
 </template>
 
 <script setup lang="ts">
@@ -9,10 +11,11 @@ function startQuestioning() {
     showQuestion.value = true
 }
 
-function answer() {
+function answer(test:any) {
+    console.log(test)
     console.log("answer")
     questionNumber.value++
-    showQuestion.value = false
+    showQuestion.value = !showQuestion.value
 }
 
 const question = ref("Hva er ditt navn?")
