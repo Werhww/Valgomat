@@ -34,7 +34,7 @@ function countUp(score:number) {
 
 <style scoped>
 .status {
-    transition: all v-bind(FullTransitionTime + "s") cubic-bezier(0, 0.20, 0.50, 0.99);
+    transition: all v-bind(FullTransitionTime + "s") cubic-bezier(0, 0.20, 0.65, 0.85);
     height: 1.1rem;
     border-radius: .3rem;
 
