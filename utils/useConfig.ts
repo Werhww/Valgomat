@@ -42,39 +42,39 @@ export const questions = [
 
 export const partys = {
     "Arbeiderpartiet" : {
-        image: "/parties/AP.jpg",
+        image: "/parties/AP.png",
         score: 0
     },
     "Høyre" : {
-        image: "/parties/H.jpg",
+        image: "/parties/H.png",
         score: 0
     }, 
     "Senterpartiet" : {
-        image: "/parties/SP.jpg",
+        image: "/parties/SP.png",
         score: 0
     },
     "Fremskrittspartiet" : {
-        image: "/parties/FPR.jpg",
+        image: "/parties/FPR.png",
         score: 0
     },
     "Sosialistisk Venstreparti" : {
-        image: "/parties/SV.jpg",
+        image: "/parties/SV.png",
         score: 0
     }, 
     "Rødt" : {
-        image: "/parties/R.jpg",
+        image: "/parties/R.png",
         score: 0
     },
     "Venstre" : {
-        image: "/parties/V.jpg",
+        image: "/parties/V.png",
         score: 0
     }, 
     "Miljøpartiet De Grønne" : {
-        image: "/parties/MDG.jpg",
+        image: "/parties/MDG.png",
         score: 0
     },
     "Kristelig Folkeparti" : {
-        image: "/parties/KRF.jpg",
+        image: "/parties/KRF.png",
         score: 0
     }
 } 
