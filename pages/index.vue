@@ -9,8 +9,8 @@
 <script setup lang="ts">
 const stats = ref(partys)
 
-
 const started = ref(false)
+const showQuestion = ref(false)
 const finished = ref(false)
 
 function startQuestioning() {
@@ -32,7 +32,6 @@ function answer(test:any) {
 
 const question = ref("Hva er ditt navn?")
 const questionNumber = ref(1)
-const showQuestion = ref(false)
 </script>
 
 <style scoped>

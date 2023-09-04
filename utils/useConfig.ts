@@ -1,43 +1,49 @@
 export const questions = [
     {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
+        question : "Ønsker å øke skattene for høyinntektspersoner og store selskaper",
+        for: {
+            'Rødt': 10,
+            'Sosialistisk Venstreparti': 10,
+            'Miljøpartiet De Grønne': 9,
+            'Arbeiderpartiet': 8,
+            'Venstre': 5,
+        },
+        neutral: {
+            'Senterpartiet': 10,
+            'Kristelig Folkeparti': 9,
+            'Venstre': 5,
+        },
+        against: {
+            'Fremskrittspartiet': 10,
+            'Høyre': 9,
+        }
     },
-
     {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
+        question : "Favoriserer økt offentlig finansiering av helsetjenester",
+        for: {
+            'Sosialistisk Venstreparti': 10,
+            'Arbeiderpartiet': 9,
+        },
+        neutral: {
+
+        },
+        against: {
+
+        }
     },
-
     {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
+        question : "",
+        for: {
+            
+        },
+        neutral: {
+
+        },
+        against: {
+
+        }
     },
-
-    {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
-    },
-
-    {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
-    },
-
-    {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
-    },
-
-    {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
-    },
-
-    {
-        "question" : "What is the capital of France?",
-        "Arebeiderpariet": 2
-    }
+    
 ]
 
 export const partys = {
