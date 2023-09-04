@@ -1,10 +1,9 @@
 <template>
     <MainGreating v-on:start="startQuestioning" v-if="!started"/>
-    <LoadingRoller v-if="started && loading" class="loading-ani" />
+    <QuestionCard :show="showQuestion && started && !finished" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
+    <QuestionCard :show="!showQuestion && started && !finished" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
 
-    <QuestionCard :show="showQuestion && started && !loading" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
-    <QuestionCard :show="!showQuestion && started && !loading" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
-
+    <ResultsView v-if="finished" :parties="stats" />
 </template>
 
 <script setup lang="ts">
@@ -12,16 +11,12 @@ const stats = ref(partys)
 
 
 const started = ref(false)
-const loading = ref(false)
+const finished = ref(false)
 
 function startQuestioning() {
     started.value = true
-    loading.value = true
     showQuestion.value = true
 
-    setTimeout(()=> {
-        loading.value = false
-    }, 2000)
 }
 
 function answer(test:any) {
@@ -29,6 +24,10 @@ function answer(test:any) {
     console.log("answer")
     questionNumber.value++
     showQuestion.value = !showQuestion.value
+
+    if(questionNumber.value == 10) {
+        finished.value = true
+    }
 }
 
 const question = ref("Hva er ditt navn?")

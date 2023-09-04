@@ -1,14 +1,19 @@
 <template>
     <div class="stats-representation">
-        <ResultsPartyResults icon="/parties/AP.png" name="Arbeiderpartiet" :score="100"/>
-        <ResultsPartyResults icon="/parties/FRP.png" name="Fremskrittspartiet" :score="100"/>
+        <ResultsPartyResults  v-for="party in Object.keys(parties)" :icon="parties[party].image" :score="parties[party].score" :name="party"/>
     </div>
-
 
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+    parties : {
+        [key:string]: {
+            score: number
+            image: string
+        }
+    }
+}>()
 </script>
 
 <style scoped>
