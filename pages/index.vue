@@ -7,31 +7,45 @@
 </template>
 
 <script setup lang="ts">
+import { questionTypes } from '~/utils/useConfig';
+
 const stats = ref(partys)
 
 const started = ref(false)
 const showQuestion = ref(false)
 const finished = ref(false)
 
+const newQuestions = ref<questionTypes[]>([])
+const question = ref("test")
+const questionNumber = ref(1)
+
 function startQuestioning() {
+    asignQuestion()
     started.value = true
     showQuestion.value = true
-
 }
 
 function answer(test:any) {
-    console.log(test)
-    console.log("answer")
-    questionNumber.value++
-    showQuestion.value = !showQuestion.value
-
     if(questionNumber.value == 10) {
         finished.value = true
     }
+
+    questionNumber.value++
+    showQuestion.value = !showQuestion.value
+    asignQuestion()
 }
 
-const question = ref("Hva er ditt navn?")
-const questionNumber = ref(1)
+function asignQuestion() {
+    console.log('err')
+    console.log(newQuestions.value)
+    question.value = "test"
+
+}
+
+onMounted(()=>{
+    console.log('getting questions')
+    newQuestions.value = newQuestionList()
+})
 </script>
 
 <style scoped>

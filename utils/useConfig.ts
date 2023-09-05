@@ -21,29 +21,22 @@ export const questions = [
     {
         question : "Favoriserer økt offentlig finansiering av helsetjenester",
         for: {
+            'Rødt': 10,
             'Sosialistisk Venstreparti': 10,
-            'Arbeiderpartiet': 9,
+            'Miljøpartiet De Grønne': 9,
+            'Arbeiderpartiet': 8,
+            'Venstre': 5,
         },
         neutral: {
-
+            'Senterpartiet': 10,
+            'Kristelig Folkeparti': 9,
+            'Venstre': 5,
         },
         against: {
-
+            'Fremskrittspartiet': 10,
+            'Høyre': 9,
         }
     },
-    {
-        question : "",
-        for: {
-            
-        },
-        neutral: {
-
-        },
-        against: {
-
-        }
-    },
-    
 ]
 
 export const partys = {
@@ -83,4 +76,17 @@ export const partys = {
         image: "/parties/KRF.png",
         score: 0
     }
-} 
+}
+
+export interface questionTypes {
+    question: string,
+    for: {
+        [key:string]: number;
+    },
+    neutral: {
+        [key:string]: number;
+    },
+    against: {
+        [key:string]: number;
+    }
+}

@@ -42,7 +42,7 @@ function countUp(score:number) {
     width: v-bind(value + "%");
 
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
 }
 
