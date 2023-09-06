@@ -1,13 +1,14 @@
 <template>
     <MainGreating v-on:start="startQuestioning" v-if="!started"/>
-    <QuestionCard :show="showQuestion && started && !finished" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
-    <QuestionCard :show="!showQuestion && started && !finished" :question="question" :question-number="questionNumber" v-on:answer="answer"/>
+    <QuestionCard :show="showQuestion && started && !finished" :question="question.question" :question-number="questionNumber" v-on:answer="answer"/>
+    <QuestionCard :show="!showQuestion && started && !finished" :question="question.question" :question-number="questionNumber" v-on:answer="answer"/>
+
 
     <ResultsView v-if="finished" :parties="stats" />
 </template>
 
 <script setup lang="ts">
-import { questionTypes } from '~/utils/useConfig';
+import { questionTypes, keys, partyNames } from '~/utils/useConfig';
 
 const stats = ref(partys)
 
@@ -16,8 +17,15 @@ const showQuestion = ref(false)
 const finished = ref(false)
 
 const newQuestions = ref<questionTypes[]>([])
-const question = ref("test")
+
+const question = ref<questionTypes>({
+    question: "",
+    for: {},
+    neutral: {},
+    against: {}
+})
 const questionNumber = ref(1)
+
 
 function startQuestioning() {
     asignQuestion()
@@ -25,9 +33,12 @@ function startQuestioning() {
     showQuestion.value = true
 }
 
-function answer(test:any) {
-    if(questionNumber.value == 10) {
+function answer(key: keys, multiplier: number) {
+    addPoints(question.value, key, multiplier)
+
+    if(questionNumber.value == newQuestions.value.length) {
         finished.value = true
+        return
     }
 
     questionNumber.value++
@@ -36,14 +47,16 @@ function answer(test:any) {
 }
 
 function asignQuestion() {
-    console.log('err')
-    console.log(newQuestions.value)
-    question.value = "test"
+    question.value = newQuestions.value[questionNumber.value - 1]
+}
 
+function addPoints(question: questionTypes, key: keys, multiplier: number) {
+    for(const parti in question[key]) {
+        stats.value[parti as partyNames].score += (question[key][parti] * multiplier)
+    }
 }
 
 onMounted(()=>{
-    console.log('getting questions')
     newQuestions.value = newQuestionList()
 })
 </script>

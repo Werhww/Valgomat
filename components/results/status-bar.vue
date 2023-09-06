@@ -15,11 +15,10 @@ const SegmentedTransitionTime = ref(0)
 
 onMounted(()=> {
     setTimeout(()=> {
-        value.value = prop.score
-
+        value.value = Math.floor(prop.score)
+        
         SegmentedTransitionTime.value = (FullTransitionTime.value / prop.score) * 1000
-        console.log(SegmentedTransitionTime.value)
-        countUp(prop.score)
+        countUp(value.value)
     }, 200)
 })
 

@@ -1,6 +1,29 @@
+export type partyNames = "Rødt" | 'Sosialistisk Venstreparti' | 'Miljøpartiet De Grønne' | 'Arbeiderpartiet' | 'Venstre' | 'Senterpartiet' | 'Kristelig Folkeparti' | 'Fremskrittspartiet' | 'Høyre'
+export type keys = 'for' | 'neutral' | 'against'
+
+
 export const questions = [
     {
         question : "Ønsker å øke skattene for høyinntektspersoner og store selskaper",
+        for: {
+            'Rødt': 10,
+            'Sosialistisk Venstreparti': 10,
+            'Miljøpartiet De Grønne': 9,
+            'Arbeiderpartiet': 8,
+            'Venstre': 5,
+        },
+        neutral: {
+            'Senterpartiet': 10,
+            'Kristelig Folkeparti': 9,
+            'Venstre': 5,
+        },
+        against: {
+            'Fremskrittspartiet': 10,
+            'Høyre': 9,
+        }
+    },
+    {
+        question : "Favoriserer økt offentlig finansiering av helsetjenester",
         for: {
             'Rødt': 10,
             'Sosialistisk Venstreparti': 10,
@@ -53,7 +76,7 @@ export const partys = {
         score: 0
     },
     "Fremskrittspartiet" : {
-        image: "/parties/FPR.png",
+        image: "/parties/FRP.png",
         score: 0
     },
     "Sosialistisk Venstreparti" : {
@@ -78,15 +101,15 @@ export const partys = {
     }
 }
 
-export interface questionTypes {
+export type questionTypes = {
     question: string,
     for: {
-        [key:string]: number;
+        [key:string] : number
     },
     neutral: {
-        [key:string]: number;
+        [key:string]: number
     },
     against: {
-        [key:string]: number;
+        [key:string]: number
     }
 }

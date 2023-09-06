@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import OptionLineUp from './option-line-up.vue';
+import { keys } from '~/utils/useConfig';
 
 defineProps<{
     questionNumber: number,
@@ -20,10 +21,12 @@ defineProps<{
     show: boolean
 }>()
 
-const emit = defineEmits(['answer', 'after-leave'])
+const emit = defineEmits<{
+    (event: 'answer', key:keys, multiplier:number) : void
+}>()
 
-function answer(test:any) {
-    emit('answer', test)
+function answer(key:keys, multiplier:number) {
+    emit('answer', key, multiplier)
 }
 </script>
 

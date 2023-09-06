@@ -1,15 +1,19 @@
 <template>
 <div class="line-up">
-    <QuestionIconOption emoji="🤮" text="Helt uenig" @click="$emit('answer', {grade:10})" />
-    <QuestionIconOption emoji="😒" text="Litt uenig"/>
-    <QuestionIconOption emoji="😵‍💫" text="Hverken eller"/>
-    <QuestionIconOption emoji="😊" text="Litt enig"/>
-    <QuestionIconOption emoji="🤩" text="Helt enig"/>
+    <QuestionIconOption emoji="🤮" text="Helt uenig" @click="$emit('answer', 'against', 1)" />
+    <QuestionIconOption emoji="😒" text="Litt uenig" @click="$emit('answer', 'against', 0.5)"/>
+    <QuestionIconOption emoji="😵‍💫" text="Hverken eller" @click="$emit('answer', 'neutral', 1)"/>
+    <QuestionIconOption emoji="😊" text="Litt enig" @click="$emit('answer', 'for', 0.5)"/>
+    <QuestionIconOption emoji="🤩" text="Helt enig" @click="$emit('answer', 'for', 1)"/>
 </div>
 </template>
 
 <script setup lang="ts">
-defineEmits(['answer'])
+import { keys } from '~/utils/useConfig';
+
+defineEmits<{
+    (event:'answer', key:keys, multiplier:number): void
+}>()
 </script>
 
 <style scoped>

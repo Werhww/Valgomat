@@ -33,6 +33,7 @@ defineProps<{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.3rem;
 }
 
 .name-icon > p {
