@@ -4,7 +4,7 @@
 >
     <div class="card" v-if="show">
         <p>{{ questionNumber }}</p>
-        <p>{{ question }}</p>
+        <p class="question">{{ question }}</p>
 
         <OptionLineUp v-on:answer="answer"/>
     </div>
@@ -65,11 +65,13 @@ function answer(key:keys, multiplier:number) {
     border-radius: 10rem;
 }
 
-.card p:last-child {
+.question {
     font: var(--text);
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--white);
+    max-width: 40rem;
+    text-align: center;
 }
 
 
@@ -102,7 +104,7 @@ function answer(key:keys, multiplier:number) {
     }
     35% {
         z-index: -10;
-        left: 60%; 
+        left: 55%; 
     }
     100% {
         z-index: -10;

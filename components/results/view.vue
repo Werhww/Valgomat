@@ -42,7 +42,7 @@ const partiLineUp = computed(()=> {
 .stats-representation {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 
     width: 80%;
     margin-left: 10%;

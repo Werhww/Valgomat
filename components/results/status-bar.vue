@@ -16,6 +16,10 @@ const SegmentedTransitionTime = ref(0)
 onMounted(()=> {
     setTimeout(()=> {
         value.value = Math.floor(prop.score)
+        if(value.value == 0) {
+            value.value = 2
+            return
+        }
         
         SegmentedTransitionTime.value = (FullTransitionTime.value / prop.score) * 1000
         countUp(value.value)
@@ -42,7 +46,7 @@ function countUp(score:number) {
 
     display: flex;
     justify-content: flex-end;
-
+    align-items: center;
 }
 
 .status p {
