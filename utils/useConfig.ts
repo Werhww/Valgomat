@@ -60,6 +60,25 @@ export const questions = [
             'Høyre': 9,
         }
     },
+    {
+        question : "Bør det være mindre støtte for dyre elbiler for å fremme bruk av mer rimelige alternativer?",
+        for: {
+            'Rødt': 10,
+            'Sosialistisk Venstreparti': 10,
+            'Miljøpartiet De Grønne': 9,
+            'Arbeiderpartiet': 8,
+            'Venstre': 5,
+        },
+        neutral: {
+            'Senterpartiet': 10,
+            'Kristelig Folkeparti': 9,
+            'Venstre': 5,
+        },
+        against: {
+            'Fremskrittspartiet': 10,
+            'Høyre': 9,
+        }
+    }, 
 ]
 
 export const partys = {
