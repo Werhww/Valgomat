@@ -68,7 +68,7 @@ export const questions = [
             'Miljøpartiet De Grønne': 9,
             'Arbeiderpartiet': 8,
             'Venstre': 5,
-        },
+        },  
         neutral: {
             'Senterpartiet': 10,
             'Kristelig Folkeparti': 9,
