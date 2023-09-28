@@ -1,8 +1,8 @@
 <template>
     <MainGreating v-on:start="startQuestioning" v-if="!started"/>
+    
     <QuestionCard :show="showQuestion && started && !finished" :question="question.question" :question-number="questionNumber" v-on:answer="answer"/>
     <QuestionCard :show="!showQuestion && started && !finished" :question="question.question" :question-number="questionNumber" v-on:answer="answer"/>
-
 
     <ResultsView v-if="finished" :parties="stats" />
 </template>
