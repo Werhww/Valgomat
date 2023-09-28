@@ -1,7 +1,7 @@
 import { questionTypes } from "./useConfig"
 
 export function newQuestionList(): questionTypes[] {
-    const AMOUNT_OF_QUESTION = 3
+    const AMOUNT_OF_QUESTION = 5
     let question_list = []
     let int_list:number[] = []
 
